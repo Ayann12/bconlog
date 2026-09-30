@@ -39,6 +39,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="wrapper">
         <!-- Sidebar -->
         <x-sidebar />
