@@ -25,10 +25,10 @@
             <ul class="nav nav-secondary">
                 @foreach ($links as $link)
                     @if ($link['is_dropdown'])
-                        <li class="nav-item active">
+                        <li class="nav-item {{ $link['is_active'] ?: 'active' }}">
                             <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-                                <i class="fas fa-home"></i>
-                                <p>Dashboard</p>
+                                <i class="{{ $link['icon'] }}"></i>
+                                <p>{{ $link['label'] }}</p>
                                 <span class="caret"></span>
                             </a>
                             <div class="collapse" id="dashboard">
@@ -42,10 +42,10 @@
                             </div>
                         </li>
                     @else
-                        <li class="nav-item">
-                            <a href="widgets.html">
-                                <i class="fas fa-desktop"></i>
-                                <p>Widgets</p>
+                        <li class="nav-item {{ $link['is_active'] ?: '' }}">
+                            <a href="{{ route($link['route']) }}">
+                                <i class="{{ $link['icon'] }}"></i>
+                                <p>{{ $link['label'] }}</p>
                             </a>
                         </li>
                     @endif
